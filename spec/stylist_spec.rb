@@ -21,4 +21,19 @@ describe(Stylist) do
       expect(stylist1).to(eq(stylist2))
     end
   end
+
+  describe('#name') do
+    it('tells you its name') do
+      test_stylist = Stylist.new({:name => 'Barbara', :id  => nil})
+      expect(test_stylist.name()).to(eq('Barbara'))
+    end
+  end
+
+  describe('#id') do
+    it('sets its id when you save it') do
+      test_stylist = Stylist.new({:name => 'Barbara', :id => nil})
+      test_stylist.save()
+      expect(test_stylist.id()).to(be_an_instance_of(Fixnum))
+    end
+  end
 end

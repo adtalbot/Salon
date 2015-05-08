@@ -13,4 +13,12 @@ describe(Stylist) do
       expect(test_stylist.id()).to(be_an_instance_of(Fixnum))
     end
   end
+
+  describe('#==') do
+    it('is the same stylist if it has the same name') do
+      stylist1 = Stylist.new({:name => 'Barbara', :id => nil})
+      stylist2 = Stylist.new({:name => 'Barbara', :id => nil})
+      expect(stylist1).to(eq(stylist2))
+    end
+  end
 end

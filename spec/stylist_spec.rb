@@ -36,4 +36,14 @@ describe(Stylist) do
       expect(test_stylist.id()).to(be_an_instance_of(Fixnum))
     end
   end
+
+  describe('.find ') do
+    it('returns a stylist by its id') do
+      test_stylist = Stylist.new({:name => 'Barbara', :id => nil})
+      test_stylist.save()
+      test_stylist2 = Stylist.new({:name => 'Barbara', :id => nil})
+      test_stylist2.save()
+      expect(Stylist.find(test_stylist2.id())).to(eq(test_stylist2))
+    end
+  end
 end

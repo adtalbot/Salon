@@ -25,4 +25,14 @@ class Stylist
   define_method(:==) do |another_stylist|
     self.name().==(another_stylist.name()).&(self.id().==(another_stylist.id()))
   end
+
+  define_singleton_method(:find) do |id|
+    found_stylist = nil
+    Stylist.all().each() do |index|
+      if index.id().==(id)
+        found_stylist = index
+      end
+    end
+    found_stylist
+  end
 end
